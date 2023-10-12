@@ -1,0 +1,35 @@
+#+title: Test the REST API
+
+#+BEGIN_SRC restclient
+GET http://localhost:8000/items
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC js
+[]
+// GET http://localhost:8000/items
+// HTTP/1.1 200 OK
+// date: Thu, 12 Oct 2023 16:19:15 GMT
+// server: uvicorn
+// content-length: 2
+// content-type: application/json
+// Request duration: 0.007749s
+#+END_SRC
+
+#+BEGIN_SRC restclient
+GET http://localhost:8000/items/1
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "detail": "Item not found"
+}
+// GET http://localhost:8000/items/1
+// HTTP/1.1 404 Not Found
+// date: Thu, 12 Oct 2023 16:19:23 GMT
+// server: uvicorn
+// content-length: 27
+// content-type: application/json
+// Request duration: 0.006835s
+#+END_SRC
